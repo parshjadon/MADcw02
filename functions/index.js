@@ -1,5 +1,6 @@
 "use strict";
 
+require("./localOnly").assertLocalOnly();
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 const { onCall, HttpsError } = require("firebase-functions/v2/https");

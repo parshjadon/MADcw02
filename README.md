@@ -21,7 +21,7 @@ flutter devices
 flutter run -d emulator-5554
 ```
 
-The target is native Android, application ID `edu.gsu.parsh.cloud_quest`. The local app defaults to `USE_EMULATORS=true`; `10.0.2.2` reaches the host from the Android emulator. The test device is API 35 x86_64 at 720 × 1280 pixels, density 320 (360 × 640 logical pixels). A local virtual device created for verification is kept under the ignored `.tools/` directory. For another computer, create an API 35 Android virtual device in Android Studio; its ID may differ.
+The target is native Android, application ID `edu.gsu.parsh.cloud_quest`. The app is locked to local emulators; `10.0.2.2` reaches the host from the Android emulator. The test device is API 35 x86_64 at 720 × 1280 pixels, density 320 (360 × 640 logical pixels). A local virtual device created for verification is kept under the ignored `.tools/` directory. For another computer, create an API 35 Android virtual device in Android Studio; its ID may differ.
 
 The emulator UI is available at `http://127.0.0.1:4000`. Auth uses 9099, Firestore 8080, and Functions 5001. Create an account using an example email and a password of at least six characters. Then read Signal Check, request a hint, try the adversarial question below, and complete the quest. A second completion displays an already-completed message. Sign out removes the challenge, progress, and coach context; signing back in restores the persisted reward.
 
@@ -61,15 +61,13 @@ The emulator coach refuses disclosure and reward changes. The before/after progr
 
 See [recorded evidence](evidence/README.md), [backend observations](evidence/backend-observations.json), [mobile observations](evidence/mobile-observations.json), and the [100–150 word reflection](REFLECTION.md).
 
-## Course configuration and limitations
+## Free local testing and assignment limits
 
-The brief explicitly requires the supplied starter and course project/gateway. Obtain those from the instructor and confirm that this newly created implementation is an acceptable starting point. The demo project alias intentionally cannot address production resources.
+This version supports local emulators only. No Firebase billing plan, cloud deployment, model account, or personal API key is needed for its test flow. The Android app always uses synthetic demo options. The backend refuses to start outside the Functions emulator, for a project other than `demo-cloud-quest`, or with nonlocal Auth/Firestore hosts. The hosted Google model adapter has been removed. The coach uses the deterministic Genkit fixture, including `/simulate-model-failure` and `/simulate-tool-failure`.
 
-For a course deployment, register the Android application ID in the course project and generate its actual FlutterFire platform options, or supply the real client values through the `FIREBASE_API_KEY`, `FIREBASE_APP_ID`, `FIREBASE_PROJECT_ID` and `FIREBASE_SENDER_ID` Dart defines with `USE_EMULATORS=false`. Client configuration is public identification, not an Admin credential. Never put service-account files or model keys in Flutter or Git.
+The free-only guard is covered by an automated test. Normal hints, privacy, denied writes, reward retries, service failures and the native Android journey are tested entirely with local services. The debug APK requires these emulators to remain running. Setup needs internet to download development tools and packages; the quest test flow calls local services.
 
-The non-emulator Genkit branch has a server-only Google model adapter and fails closed without a configured key. It must be adapted to the supplied course gateway before claiming course-model integration. Emulator requests always use the mock and never incur model charges. No personal key is needed for the verified local flow. The fixture supports `/simulate-model-failure` and `/simulate-tool-failure`; these triggers are disabled outside the Functions emulator.
-
-Do not deploy using the demo alias. After receiving the course configuration, verify that the Firebase CLI targets exactly the course project before deploying functions and rules, then repeat the live gateway checks. Course Firebase access, live-model behavior, iOS, and app-store release signing are not verified here. The Android debug APK is a local development artifact and requires the emulators.
+The brief asks for a supplied starter and course Firebase/AI gateway, which were not available. That is an assignment-compliance question, not a requirement to buy anything. This implementation does not claim course-project deployment or live-LLM testing. If the instructor requires the course gateway, ask for the provided access; this free-only build deliberately has no hosted-model connection.
 
 ## Project map
 

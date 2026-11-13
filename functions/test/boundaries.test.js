@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
+const { assertLocalOnly } = require("../localOnly");
 
 if (!process.env.FIRESTORE_EMULATOR_HOST || !process.env.FIREBASE_AUTH_EMULATOR_HOST) {
   throw Error("Tests require the Firebase emulators; production tests are prohibited.");
@@ -17,6 +18,17 @@ const callableUrl = `http://127.0.0.1:5001/${project}/us-central1`;
 const firestoreUrl = `http://${process.env.FIRESTORE_EMULATOR_HOST}/v1/projects/${project}/databases/(default)/documents`;
 const observations = [];
 let alice, bob;
+
+test("free-only guard rejects cloud execution, real projects and remote emulator hosts", () => {
+  const local = { FUNCTIONS_EMULATOR: "true", GCLOUD_PROJECT: "demo-cloud-quest",
+    FIRESTORE_EMULATOR_HOST: "127.0.0.1:8080", FIREBASE_AUTH_EMULATOR_HOST: "127.0.0.1:9099" };
+  assert.doesNotThrow(() => assertLocalOnly(local));
+  for (const override of [
+    { FUNCTIONS_EMULATOR: "false" }, { GCLOUD_PROJECT: "real-project" },
+    { FIRESTORE_EMULATOR_HOST: "" }, { FIRESTORE_EMULATOR_HOST: "example.com:8080" },
+    { FIREBASE_AUTH_EMULATOR_HOST: "example.com:9099" },
+  ]) assert.throws(() => assertLocalOnly({ ...local, ...override }), /free\/local-only/);
+});
 const quest = { title: "Signal Check", prompt: "Pause for two minutes. Notice one sound, one color, and one texture around you. Take three slow breaths, then name one small action that would help you focus. When you have tried these steps, complete your quest." };
 async function account(role) {
   const response = await fetch(`${authUrl}/accounts:signUp?key=demo-key`, { method: "POST",

@@ -1,70 +1,76 @@
 ﻿TAP version 13
-# Subtest: signed-out and invalid-token callers cannot use either callable
-ok 1 - signed-out and invalid-token callers cannot use either callable
+# Subtest: free-only guard rejects cloud execution, real projects and remote emulator hosts
+ok 1 - free-only guard rejects cloud execution, real projects and remote emulator hosts
   ---
-  duration_ms: 123.4726
+  duration_ms: 106.441
+  type: 'test'
+  ...
+# Subtest: signed-out and invalid-token callers cannot use either callable
+ok 2 - signed-out and invalid-token callers cannot use either callable
+  ---
+  duration_ms: 3291.8891
   type: 'test'
   ...
 # Subtest: Firestore gates challenge reads, denies other-user reads and all client writes
-ok 2 - Firestore gates challenge reads, denies other-user reads and all client writes
+ok 3 - Firestore gates challenge reads, denies other-user reads and all client writes
   ---
-  duration_ms: 42.7556
+  duration_ms: 51.1115
   type: 'test'
   ...
 # Subtest: coach validates blank, oversized and incorrectly typed questions
-ok 3 - coach validates blank, oversized and incorrectly typed questions
+ok 4 - coach validates blank, oversized and incorrectly typed questions
   ---
-  duration_ms: 10.5768
+  duration_ms: 12.6391
   type: 'test'
   ...
 # Subtest: grounded coach uses verified UID even when another UID is supplied
-ok 4 - grounded coach uses verified UID even when another UID is supplied
+ok 5 - grounded coach uses verified UID even when another UID is supplied
   ---
-  duration_ms: 62.5405
+  duration_ms: 201.9421
   type: 'test'
   ...
 # Subtest: Signal Check adversarial request discloses no other learner and writes no reward
-ok 5 - Signal Check adversarial request discloses no other learner and writes no reward
+ok 6 - Signal Check adversarial request discloses no other learner and writes no reward
   ---
-  duration_ms: 93.2182
+  duration_ms: 76.0464
   type: 'test'
   ...
 # Subtest: tool/model failures return unavailable and cannot invent state or change progress
-ok 6 - tool/model failures return unavailable and cannot invent state or change progress
+ok 7 - tool/model failures return unavailable and cannot invent state or change progress
   ---
-  duration_ms: 31.4277
+  duration_ms: 47.0629
   type: 'test'
   ...
 # Subtest: reward ignores caller-supplied identity and points, then preserves timestamp on retry
-ok 7 - reward ignores caller-supplied identity and points, then preserves timestamp on retry
+ok 8 - reward ignores caller-supplied identity and points, then preserves timestamp on retry
   ---
-  duration_ms: 155.2306
+  duration_ms: 217.0532
   type: 'test'
   ...
 # Subtest: eight concurrent completions award exactly once
-ok 8 - eight concurrent completions award exactly once
+ok 9 - eight concurrent completions award exactly once
   ---
-  duration_ms: 171.8958
+  duration_ms: 2366.2992
   type: 'test'
   ...
 # Subtest: completed-state hint reflects the reward and cannot alter it
-ok 9 - completed-state hint reflects the reward and cannot alter it
+ok 10 - completed-state hint reflects the reward and cannot alter it
   ---
-  duration_ms: 46.3177
+  duration_ms: 48.1315
   type: 'test'
   ...
 # Subtest: unknown challenges and missing seed fail safely
-ok 10 - unknown challenges and missing seed fail safely
+ok 11 - unknown challenges and missing seed fail safely
   ---
-  duration_ms: 49.5
+  duration_ms: 64.6475
   type: 'test'
   ...
-1..10
-# tests 10
+1..11
+# tests 11
 # suites 0
-# pass 10
+# pass 11
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 1166.2173
+# duration_ms 6858.268

@@ -1,7 +1,6 @@
 "use strict";
 
 const { genkit, z } = require("genkit");
-const { googleAI } = require("@genkit-ai/google-genai");
 
 const instructions = `You are the supervised Quest Coach. Call readMyQuestState before every hint.
 Use only its challenge and caller progress. Give a concise, practical hint in plain text.
@@ -12,7 +11,7 @@ If the tool or model fails, do not invent a hint or progress.`;
 
 function createQuestCoach(db) {
   const emulator = process.env.FUNCTIONS_EMULATOR === "true";
-  const ai = genkit({ plugins: emulator ? [] : [googleAI()] });
+  const ai = genkit({ plugins: [] });
   const stateSchema = z.object({
     challenge: z.object({ title: z.string(), prompt: z.string() }),
     progress: z.object({ completed: z.boolean(), points: z.number(), badgeId: z.string().nullable() }),
@@ -43,7 +42,7 @@ function createQuestCoach(db) {
 
   // Deterministic, free emulator fixture. It exercises the actual Genkit tool loop;
   // it is deliberately labeled as a mock, not evidence of live-model safety.
-  const mockModel = emulator ? ai.defineModel({
+  const mockModel = ai.defineModel({
     name: "local/quest-coach-mock", supports: { multiturn: true, tools: true, toolChoice: true },
   }, async ({ messages }) => {
     const question = messages.find((m) => m.role === "user")?.content.map((p) => p.text || "").join("") || "";
@@ -60,17 +59,15 @@ function createQuestCoach(db) {
         ? `You have completed ${state.challenge.title} and have ${state.progress.points} points. Try the focus exercise again if it helps; repeating completion will not add points.`
         : `For ${state.challenge.title}, start with the first step: ${state.challenge.prompt.split(". ")[0]}. You have ${state.progress.points} points and have not completed this quest yet. Work through the remaining steps, then choose Complete challenge yourself.`;
     return { message: { role: "model", content: [{ text: reply }] }, finishReason: "stop" };
-  }) : null;
+  });
 
   return ai.defineFlow({
     name: "questCoach",
     inputSchema: z.object({ question: z.string().trim().min(1).max(300) }),
-    outputSchema: z.object({ reply: z.string(), mode: z.enum(["emulator-mock", "live-model"]) }),
+    outputSchema: z.object({ reply: z.string(), mode: z.literal("emulator-mock") }),
   }, async ({ question }, { context }) => {
-    if (!emulator && !process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
-      throw Error("Course model gateway is not configured.");
-    }
-    const model = mockModel || googleAI.model(process.env.QUEST_MODEL || "gemini-flash-latest");
+    require("./localOnly").assertLocalOnly();
+    const model = mockModel;
     // Explicit orchestration enforces a tool read before any final answer.
     const first = await ai.generate({ model, system: instructions, prompt: question,
       tools: [readMyQuestState], toolChoice: "required", returnToolRequests: true });
@@ -87,7 +84,7 @@ function createQuestCoach(db) {
       prompt: [{ toolResponse: { name: "readMyQuestState", ref: call.ref, output: state } }],
       tools: [], toolChoice: "none", returnToolRequests: true });
     if (result.toolRequests.length || !result.text.trim()) throw Error("Coach returned no usable hint.");
-    return { reply: result.text.trim().slice(0, 900), mode: emulator ? "emulator-mock" : "live-model" };
+    return { reply: result.text.trim().slice(0, 900), mode: "emulator-mock" };
   });
 }
 

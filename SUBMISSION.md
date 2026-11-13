@@ -2,7 +2,7 @@
 
 Repository: https://github.com/parshjadon/MADcw02
 
-Prepared: November 13, 2026. This is a verified **local emulator implementation** of Cloud Quest: Signal Check.
+Prepared: November 13, 2026. This is a verified **free, local-only emulator implementation** of Cloud Quest: Signal Check.
 
 ## Included
 
@@ -13,7 +13,7 @@ Prepared: November 13, 2026. This is a verified **local emulator implementation*
 - An authenticated transactional completion callable: exactly 10 points and the First Quest badge, once.
 - Automated backend boundary/retry tests, widget tests, and an Android integration journey.
 - Eight genuine Android screenshots and recorded before/after progress evidence.
-- Setup/run instructions and a 129-word reflection.
+- Setup/run instructions and a 134-word reflection.
 - Explicit disclosure of Codex assistance and the emulator model limitation.
 
 See [README.md](README.md), [test evidence](evidence/README.md), and [REFLECTION.md](REFLECTION.md).
@@ -24,6 +24,6 @@ The local handoff folder `submission/` contains a source ZIP and an Android debu
 
 The supplied assignment explicitly asks for its provided Flutter starter and course Firebase/AI gateway. This GitHub repository was empty and neither resource was available. The app therefore uses synthetic emulator Firebase options and an explicitly labeled deterministic model fixture.
 
-Ask the instructor for the starter repository and course Firebase/AI gateway configuration, and confirm whether this independently created starter is acceptable. After the instructor supplies them, integrate the course options/gateway and repeat the live-model checks. The current records do **not** claim those unperformed checks or a production deployment.
+Ask the instructor for the starter repository and course Firebase/AI gateway configuration, and confirm whether this independently created starter is acceptable. This course-compliance question does not require purchasing a Firebase plan or a model subscription. The selected implementation deliberately supports only free local testing. The current records do **not** claim those unperformed checks or a production deployment.
 
 Because those course requirements are unresolved, this package cannot honestly be certified as fully compliant with every item in the brief. The local implementation and recorded emulator results are ready for review.
