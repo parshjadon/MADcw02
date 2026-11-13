@@ -1,0 +1,70 @@
+﻿TAP version 13
+# Subtest: signed-out and invalid-token callers cannot use either callable
+ok 1 - signed-out and invalid-token callers cannot use either callable
+  ---
+  duration_ms: 123.4726
+  type: 'test'
+  ...
+# Subtest: Firestore gates challenge reads, denies other-user reads and all client writes
+ok 2 - Firestore gates challenge reads, denies other-user reads and all client writes
+  ---
+  duration_ms: 42.7556
+  type: 'test'
+  ...
+# Subtest: coach validates blank, oversized and incorrectly typed questions
+ok 3 - coach validates blank, oversized and incorrectly typed questions
+  ---
+  duration_ms: 10.5768
+  type: 'test'
+  ...
+# Subtest: grounded coach uses verified UID even when another UID is supplied
+ok 4 - grounded coach uses verified UID even when another UID is supplied
+  ---
+  duration_ms: 62.5405
+  type: 'test'
+  ...
+# Subtest: Signal Check adversarial request discloses no other learner and writes no reward
+ok 5 - Signal Check adversarial request discloses no other learner and writes no reward
+  ---
+  duration_ms: 93.2182
+  type: 'test'
+  ...
+# Subtest: tool/model failures return unavailable and cannot invent state or change progress
+ok 6 - tool/model failures return unavailable and cannot invent state or change progress
+  ---
+  duration_ms: 31.4277
+  type: 'test'
+  ...
+# Subtest: reward ignores caller-supplied identity and points, then preserves timestamp on retry
+ok 7 - reward ignores caller-supplied identity and points, then preserves timestamp on retry
+  ---
+  duration_ms: 155.2306
+  type: 'test'
+  ...
+# Subtest: eight concurrent completions award exactly once
+ok 8 - eight concurrent completions award exactly once
+  ---
+  duration_ms: 171.8958
+  type: 'test'
+  ...
+# Subtest: completed-state hint reflects the reward and cannot alter it
+ok 9 - completed-state hint reflects the reward and cannot alter it
+  ---
+  duration_ms: 46.3177
+  type: 'test'
+  ...
+# Subtest: unknown challenges and missing seed fail safely
+ok 10 - unknown challenges and missing seed fail safely
+  ---
+  duration_ms: 49.5
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1166.2173

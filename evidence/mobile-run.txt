@@ -1,0 +1,145 @@
+﻿Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...
+
+C:\MAD\CW02\android>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\MAD\CW02\android>set DEFAULT_JVM_OPTS=
+
+C:\MAD\CW02\android>set DIRNAME=C:\MAD\CW02\android\
+
+C:\MAD\CW02\android>if "C:\MAD\CW02\android\" == "" set DIRNAME=.
+
+C:\MAD\CW02\android>set APP_BASE_NAME=gradlew
+
+C:\MAD\CW02\android>set APP_HOME=C:\MAD\CW02\android\
+
+C:\MAD\CW02\android>if defined JAVA_HOME goto findJavaFromJavaHome
+
+C:\MAD\CW02\android>set JAVA_HOME=C:\MAD\Andriod Studio\jbr
+
+C:\MAD\CW02\android>set JAVA_EXE=C:\MAD\Andriod Studio\jbr/bin/java.exe
+
+C:\MAD\CW02\android>if exist "C:\MAD\Andriod Studio\jbr/bin/java.exe" goto init
+
+C:\MAD\CW02\android>if not "Windows_NT" == "Windows_NT" goto win9xME_args
+
+C:\MAD\CW02\android>if "@eval[2+2]" == "4" goto 4NT_args
+
+C:\MAD\CW02\android>set CMD_LINE_ARGS=
+
+C:\MAD\CW02\android>set _SKIP=2
+
+C:\MAD\CW02\android>if "x-q" == "x" goto execute
+
+C:\MAD\CW02\android>set CMD_LINE_ARGS=-q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=RkxVVFRFUl9CVUlMRF9OQU1FPTEuMC4w,RkxVVFRFUl9CVUlMRF9OVU1CRVI9MQ==,RkxVVFRFUl9WRVJTSU9OPTMuNDcuMg==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049ZDNiMTRjODc2OQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049YTgwNGIyNjE2NA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMy4y -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
+
+C:\MAD\CW02\android>goto execute
+
+C:\MAD\CW02\android>set CLASSPATH=C:\MAD\CW02\android\\gradle\wrapper\gradle-wrapper.jar
+
+C:\MAD\CW02\android>"C:\MAD\Andriod Studio\jbr/bin/java.exe"    "-Dorg.gradle.appname=gradlew" -classpath "C:\MAD\CW02\android\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain -q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=RkxVVFRFUl9CVUlMRF9OQU1FPTEuMC4w,RkxVVFRFUl9CVUlMRF9OVU1CRVI9MQ==,RkxVVFRFUl9WRVJTSU9OPTMuNDcuMg==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049ZDNiMTRjODc2OQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049YTgwNGIyNjE2NA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMy4y -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/C:/Users/parsh/.gradle/wrapper/dists/gradle-9.3.1-all/9ot9r568e8zfvvd4mn8rbu1j0/gradle-9.3.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+System.Management.Automation.RemoteException
+WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): cloud_functions, firebase_auth, firebase_core
+Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+System.Management.Automation.RemoteException
+Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
+If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
+an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
+System.Management.Automation.RemoteException
+If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
+
+C:\MAD\CW02\android>if "0" == "0" goto mainEnd
+
+C:\MAD\CW02\android>if "Windows_NT" == "Windows_NT" endlocal
+Running Gradle task 'assembleDebug'...                              8.4s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...          496ms
+D/FlutterJNI( 3417): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at [local Dart VM service URL omitted]
+VMServiceFlutterDriver: Isolate found with number: 1067887212378103
+VMServiceFlutterDriver: Isolate 1067887212378103 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter ( 3417): 00:00 +0: Android learner journey, coach safety, reward retry and sign-out
+VMServiceFlutterDriver: Connected to Flutter application.
+I/FirebaseApp( 3417): Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+D/FirebaseAuth( 3417): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 3417): Notifying auth state listeners about a sign-out event.
+D/FlutterJNI( 3417): Sending viewport metrics to the engine.
+D/EGL_emulation( 3417): app_time_stats: avg=105.46ms min=2.71ms max=232.63ms count=11
+I/FirebaseAuth( 3417): Creating user with mobile-1794605876155@example.test with empty reCAPTCHA token
+W/System  ( 3417): Ignoring header X-Firebase-Locale because its value was null.
+D/TrafficStats( 3417): tagSocket(148) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 3417): app_time_stats: avg=83.25ms min=23.56ms max=127.19ms count=13
+D/ProfileInstaller( 3417): Installing profile for edu.gsu.parsh.cloud_quest
+W/System  ( 3417): Ignoring header X-Firebase-Locale because its value was null.
+D/FirebaseAuth( 3417): Notifying id token listeners about user ( pz9vDwKUwkqR5X8GHsKq9a5NJ0n1 ).
+D/FirebaseAuth( 3417): Notifying auth state listeners about user ( pz9vDwKUwkqR5X8GHsKq9a5NJ0n1 ).
+W/GooglePlayServicesUtil( 3417): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
+E/GooglePlayServicesUtil( 3417): GooglePlayServices not available due to error 9
+W/Firestore( 3417): (27.1.0) [GrpcCallProvider]: Failed to update ssl context: com.google.android.gms.common.GooglePlayServicesNotAvailableException
+D/FlutterJNI( 3417): Sending viewport metrics to the engine.
+D/TrafficStats( 3417): tagSocket(161) with statsTag=0xffffffff, statsUid=-1
+D/TrafficStats( 3417): tagSocket(162) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 3417): app_time_stats: avg=120.22ms min=113.94ms max=149.54ms count=9
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+D/EGL_emulation( 3417): app_time_stats: avg=1623.98ms min=198.68ms max=3918.22ms count=3
+D/EGL_emulation( 3417): app_time_stats: avg=132.30ms min=116.06ms max=179.16ms count=8
+W/GooglePlayServicesUtil( 3417): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
+E/GooglePlayServicesUtil( 3417): GooglePlayServices not available due to error 9
+D/FirebaseFunctions( 3417): Failed to update ssl context
+E/FirebaseInstanceId( 3417): Google Play services missing or without correct permission.
+D/TrafficStats( 3417): tagSocket(164) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 3417): app_time_stats: avg=77.70ms min=10.86ms max=117.88ms count=13
+D/EGL_emulation( 3417): app_time_stats: avg=2268.05ms min=2268.05ms max=2268.05ms count=1
+D/EGL_emulation( 3417): app_time_stats: avg=125.61ms min=110.38ms max=181.72ms count=9
+E/FirebaseInstanceId( 3417): Google Play services missing or without correct permission.
+D/EGL_emulation( 3417): app_time_stats: avg=79.70ms min=24.80ms max=118.85ms count=13
+D/EGL_emulation( 3417): app_time_stats: avg=1448.09ms min=1448.09ms max=1448.09ms count=1
+E/FirebaseInstanceId( 3417): Google Play services missing or without correct permission.
+I/flutter ( 3417): Quest Coach failed: unavailable
+D/EGL_emulation( 3417): app_time_stats: avg=84.53ms min=25.59ms max=181.15ms count=13
+D/EGL_emulation( 3417): app_time_stats: avg=1449.58ms min=1449.58ms max=1449.58ms count=1
+E/FirebaseInstanceId( 3417): Google Play services missing or without correct permission.
+D/EGL_emulation( 3417): app_time_stats: avg=112.86ms min=35.74ms max=166.84ms count=9
+D/EGL_emulation( 3417): app_time_stats: avg=1250.71ms min=1250.71ms max=1250.71ms count=1
+D/EGL_emulation( 3417): app_time_stats: avg=101.26ms min=19.41ms max=181.58ms count=11
+E/FirebaseInstanceId( 3417): Google Play services missing or without correct permission.
+D/EGL_emulation( 3417): app_time_stats: avg=1266.63ms min=1266.63ms max=1266.63ms count=1
+D/EGL_emulation( 3417): app_time_stats: avg=95.81ms min=21.01ms max=183.39ms count=12
+D/FirebaseAuth( 3417): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 3417): Notifying auth state listeners about a sign-out event.
+W/Firestore( 3417): (27.1.0) [Firestore]: Listen for QueryWrapper(query=Query(target=Query(challenges/today order by __name__);limitType=LIMIT_TO_FIRST)) failed: Status{code=PERMISSION_DENIED, description=
+W/Firestore( 3417): false for 'get' @ L5, false for 'get' @ L13, cause=null}
+W/Firestore( 3417): (27.1.0) [Firestore]: Listen for QueryWrapper(query=Query(target=Query(users/pz9vDwKUwkqR5X8GHsKq9a5NJ0n1/progress/today order by __name__);limitType=LIMIT_TO_FIRST)) failed: Status{code=PERMISSION_DENIED, description=
+W/Firestore( 3417): false for 'get' @ L9, false for 'get' @ L13, cause=null}
+D/EGL_emulation( 3417): app_time_stats: avg=82.41ms min=13.83ms max=182.07ms count=13
+I/FirebaseAuth( 3417): Logging in as mobile-1794605876155@example.test with empty reCAPTCHA token
+W/System  ( 3417): Ignoring header X-Firebase-Locale because its value was null.
+D/TrafficStats( 3417): tagSocket(142) with statsTag=0xffffffff, statsUid=-1
+W/System  ( 3417): Ignoring header X-Firebase-Locale because its value was null.
+D/FirebaseAuth( 3417): Notifying id token listeners about user ( pz9vDwKUwkqR5X8GHsKq9a5NJ0n1 ).
+D/FirebaseAuth( 3417): Notifying auth state listeners about user ( pz9vDwKUwkqR5X8GHsKq9a5NJ0n1 ).
+D/EGL_emulation( 3417): app_time_stats: avg=90.21ms min=13.35ms max=130.50ms count=12
+D/FirebaseAuth( 3417): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 3417): Notifying auth state listeners about a sign-out event.
+W/Firestore( 3417): (27.1.0) [Firestore]: Listen for QueryWrapper(query=Query(target=Query(challenges/today order by __name__);limitType=LIMIT_TO_FIRST)) failed: Status{code=PERMISSION_DENIED, description=
+W/Firestore( 3417): false for 'get' @ L5, false for 'get' @ L13, cause=null}
+W/Firestore( 3417): (27.1.0) [Firestore]: Listen for QueryWrapper(query=Query(target=Query(users/pz9vDwKUwkqR5X8GHsKq9a5NJ0n1/progress/today order by __name__);limitType=LIMIT_TO_FIRST)) failed: Status{code=PERMISSION_DENIED, description=
+W/Firestore( 3417): false for 'get' @ L9, false for 'get' @ L13, cause=null}
+I/flutter ( 3417): 00:15 +1: (tearDownAll)
+I/flutter ( 3417): 00:15 +2: All tests passed!
+D/EGL_emulation( 3417): app_time_stats: avg=1325.31ms min=566.49ms max=2084.13ms count=2
+All tests passed.
