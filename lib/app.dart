@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'models.dart';
+import 'firebase_options.dart';
 
 class CloudQuestApp extends StatelessWidget {
   const CloudQuestApp({
@@ -164,7 +165,9 @@ class _SignInState extends State<_SignIn> {
               if (widget.emulatorMode)
                 const _Notice(
                   icon: Icons.science_outlined,
-                  text: 'Local emulator • coach responses use a test model',
+                  text: QuestConfiguration.useSpark
+                      ? 'Firebase Spark • local test coach'
+                      : 'Local emulator • coach responses use a test model',
                 ),
               const SizedBox(height: 16),
               Form(
@@ -400,7 +403,9 @@ class _QuestScreenState extends State<_QuestScreen> {
               if (widget.emulatorMode)
                 const _Notice(
                   icon: Icons.science_outlined,
-                  text: 'Local emulator • test model',
+                  text: QuestConfiguration.useSpark
+                      ? 'Firebase Spark • local test coach'
+                      : 'Local emulator • test model',
                 ),
               const SizedBox(height: 20),
               Text(

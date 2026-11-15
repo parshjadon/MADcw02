@@ -19,7 +19,7 @@ const firestoreUrl = `http://${process.env.FIRESTORE_EMULATOR_HOST}/v1/projects/
 const observations = [];
 let alice, bob;
 
-test("free-only guard rejects cloud execution, real projects and remote emulator hosts", () => {
+test("local-backend guard rejects hosted execution and unregistered projects", () => {
   const local = { FUNCTIONS_EMULATOR: "true", GCLOUD_PROJECT: "demo-cloud-quest",
     FIRESTORE_EMULATOR_HOST: "127.0.0.1:8080", FIREBASE_AUTH_EMULATOR_HOST: "127.0.0.1:9099" };
   assert.doesNotThrow(() => assertLocalOnly(local));
@@ -28,6 +28,15 @@ test("free-only guard rejects cloud execution, real projects and remote emulator
     { FIRESTORE_EMULATOR_HOST: "" }, { FIRESTORE_EMULATOR_HOST: "example.com:8080" },
     { FIREBASE_AUTH_EMULATOR_HOST: "example.com:9099" },
   ]) assert.throws(() => assertLocalOnly({ ...local, ...override }), /free\/local-only/);
+  const spark = { FUNCTIONS_EMULATOR: "true", QUEST_FIREBASE_MODE: "spark",
+    GCLOUD_PROJECT: require("../../config/firebase-spark.json").projectId };
+  assert.equal(assertLocalOnly(spark), "spark");
+  const { QUEST_FIREBASE_MODE: _mode, ...discoveryEnvironment } = spark;
+  assert.equal(assertLocalOnly(discoveryEnvironment), "spark");
+  for (const override of [{ FUNCTIONS_EMULATOR: "false" }, { GCLOUD_PROJECT: "other-project" },
+    { FIRESTORE_EMULATOR_HOST: "localhost:8080" }, { FIREBASE_AUTH_EMULATOR_HOST: "localhost:9099" }]) {
+    assert.throws(() => assertLocalOnly({ ...spark, ...override }), /Spark mode requires/);
+  }
 });
 const quest = { title: "Signal Check", prompt: "Pause for two minutes. Notice one sound, one color, and one texture around you. Take three slow breaths, then name one small action that would help you focus. When you have tried these steps, complete your quest." };
 async function account(role) {

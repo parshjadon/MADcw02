@@ -1,6 +1,28 @@
 ﻿# Recorded verification evidence
 
-All results below are from executed checks on November 13, 2026, against `demo-cloud-quest`. The evidence uses disposable synthetic learner identities. No authentication tokens, passwords, service-account files, or live model credentials are included.
+The Android emulator evidence was captured on November 13, 2026, against `demo-cloud-quest`. The analyzer, widget tests and 11 local backend checks were rerun successfully on November 14 after importing the registered Firebase configuration. The evidence uses disposable synthetic learner identities. No authentication tokens, passwords, service-account files, or live model credentials are included.
+
+## Registered Spark results ? November 14, 2026
+
+Project `test13-a8b02` has live Authentication and Firestore in `nam5`. Billing was checked before setup and again after the live tests: disabled, with no billing account linked. Reward and coach callables run locally on port 5002. No hosted Functions or paid model were deployed.
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Billing and services | Billing disabled; no linked account; Email/Password and Firestore enabled | [status](spark-project-status.json) |
+| Rules deployment | Reviewed challenge/own-progress reads and denied client writes published successfully | [deployment output](spark-rules-deploy.txt) |
+| Live backend/security/retry suite | All 7 checks passed | [test output](spark-tests.txt), [observations](spark-observations.json) |
+| Native Android Spark journey | Registration, sign-in, challenge, grounded hint, adversarial no-write, outage fallback, first reward, unchanged retry, sign-out and reauthentication passed | [mobile log](spark-mobile-run.txt), [mobile records](spark-mobile-observations.json) |
+| Spark screenshots | Eight actual Android screenshots, with Firebase Spark mode labeled | [signed out](spark-screenshots/01-signed-out.png), [challenge](spark-screenshots/02-challenge.png), [normal hint](spark-screenshots/03-grounded-hint.png), [Signal Check](spark-screenshots/04-signal-check.png), [fallback](spark-screenshots/05-service-fallback.png), [reward](spark-screenshots/06-first-reward.png), [retry](spark-screenshots/07-idempotent-retry.png), [signed out again](spark-screenshots/08-signed-out-again.png) |
+
+The live service tests created three synthetic accounts; the Android journey created another synthetic account. Passwords and ID tokens were not saved. The recorded caller UID/document path lets a reviewer locate the reward in the Firebase Console. The initial emulator DNS issue was corrected using explicit DNS servers before the successful live Android run. AOSP Google Play services warnings remain nonfatal; the successful logs and real progress records show the requests completed.
+
+Repeat the approved live checks with a local backend running:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/verify-spark.ps1 -AllowTestWrites -DeviceId emulator-5554
+```
+
+This command intentionally creates new synthetic accounts/progress. The coach is still a deterministic test model. Supplied course starter/gateway integration and a live LLM are not claimed.
 
 ## Environment
 
@@ -26,7 +48,7 @@ powershell -ExecutionPolicy Bypass -File scripts/verify.ps1 -UseRunningEmulators
 | `node functions/scripts/run-tests.js` with emulator hosts | 11 backend tests passed, 0 failures | [TAP output](backend-tests.txt) |
 | `flutter drive --driver=test_driver/integration_test.dart --target=integration_test/quest_flow_test.dart -d emulator-5554` | Full native Android journey passed | [mobile log](mobile-run.txt) |
 
-The additional free-only guard test rejects cloud execution, real project IDs, missing emulator hosts and remote hosts. The hosted model adapter is absent; the app cannot select production Firebase options.
+The backend guard rejects hosted execution and unregistered projects. It supports the original demo emulators plus the explicitly registered Spark project with a local backend. The hosted model adapter is absent. The registered Spark setup was approved and completed on November 14. Seven live service checks and the Android journey pass with live Auth/Firestore and local Functions. Those results are recorded separately below.
 
 ## Assignment matrix
 

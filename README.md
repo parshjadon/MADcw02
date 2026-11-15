@@ -2,7 +2,14 @@
 
 CW-02 Firebase classwork. Flutter for Android, Firebase Authentication, Cloud Firestore, callable Cloud Functions, and a supervised Genkit Quest Coach.
 
-This repository began empty. This implementation was built from the official Flutter project template, not a supplied course starter. Local verification uses `demo-cloud-quest` and a deterministic Genkit model fixture. The course starter, registered Firebase application, and course AI gateway were not supplied. No production deployment or live-model safety result is claimed.
+This repository began empty. This implementation was built from the official Flutter project template, not a supplied course starter. The default test mode uses `demo-cloud-quest`. A registered Firebase Spark project, `test13-a8b02`, now provides live Authentication and Firestore with a local Functions backend and deterministic Genkit coach. The course starter and course AI gateway were not supplied. No hosted Functions deployment or live-model safety result is claimed.
+
+For the registered Firebase project, use the [Spark connection run steps](#free-firebase-connection). Keep its local backend running while using the app.
+
+| Mode | Authentication and Firestore | Reward function and coach |
+| --- | --- | --- |
+| Default emulator run | Local demo services | Local backend on port 5001 |
+| `USE_SPARK=true` | Live `test13-a8b02`, billing disabled | Local backend on port 5002 |
 
 ## Run locally (no paid project or model key)
 
@@ -61,13 +68,28 @@ The emulator coach refuses disclosure and reward changes. The before/after progr
 
 See [recorded evidence](evidence/README.md), [backend observations](evidence/backend-observations.json), [mobile observations](evidence/mobile-observations.json), and the [100–150 word reflection](REFLECTION.md).
 
-## Free local testing and assignment limits
+## Free Firebase connection
 
-This version supports local emulators only. No Firebase billing plan, cloud deployment, model account, or personal API key is needed for its test flow. The Android app always uses synthetic demo options. The backend refuses to start outside the Functions emulator, for a project other than `demo-cloud-quest`, or with nonlocal Auth/Firestore hosts. The hosted Google model adapter has been removed. The coach uses the deterministic Genkit fixture, including `/simulate-model-failure` and `/simulate-tool-failure`.
+The default run remains entirely local with `demo-cloud-quest`. An optional registered-project mode now imports the Android configuration for `test13-a8b02` from `android/app/google-services.json`. The project check confirmed billing disabled, no linked billing account, Email/Password enabled and a Firestore database in `nam5`. See [project status](evidence/spark-project-status.json).
 
-The free-only guard is covered by an automated test. Normal hints, privacy, denied writes, reward retries, service failures and the native Android journey are tested entirely with local services. The debug APK requires these emulators to remain running. Setup needs internet to download development tools and packages; the quest test flow calls local services.
+In Spark mode, Authentication and Firestore are live Firebase services; the reward callable and Genkit test coach remain on your computer at port 5002. There is no hosted-model adapter and no deployed Cloud Function. The backend independently verifies real Firebase ID tokens in this mode. The default emulator mode keeps its existing strict demo-project/loopback checks.
 
-The brief asks for a supplied starter and course Firebase/AI gateway, which were not available. That is an assignment-compliance question, not a requirement to buy anything. This implementation does not claim course-project deployment or live-LLM testing. If the instructor requires the course gateway, ask for the provided access; this free-only build deliberately has no hosted-model connection.
+Before each Spark backend start, `scripts/check-spark.js` verifies that billing is still disabled and no billing account is linked. It uses the existing local Firebase CLI login; private login credentials are never copied into this repository. The registered client identifiers are public app configuration, not Admin credentials.
+
+The approved setup seeded `challenges/today` and published [these rules](firestore.rules): signed-in challenge reads, own-progress reads, and no client writes. All seven live service checks passed, including independent ID-token verification, forged-token denial, cross-user read denial, denied client writes, coach no-write behavior, first reward, idempotent retry and eight concurrent completion requests. The test creates three synthetic accounts and small progress records. See [Spark observations](evidence/spark-observations.json) and [test output](evidence/spark-tests.txt).
+
+To use the registered Firebase project without enabling billing, run:
+
+```powershell
+# Terminal 1: local backend using the registered free project's Auth/Firestore
+powershell -ExecutionPolicy Bypass -File scripts/start-spark.ps1
+# Terminal 2: Android client
+flutter run -d emulator-5554 --dart-define=USE_SPARK=true
+```
+
+To repeat the live service checks, run `powershell -ExecutionPolicy Bypass -File scripts/verify-spark.ps1 -AllowTestWrites`; add `-DeviceId emulator-5554` for Android evidence. This intentionally creates synthetic test accounts/progress.
+
+This app still uses a deterministic local coach fixture. Neither a live LLM result nor a Cloud Functions deployment is claimed. The original brief's supplied-starter/course-gateway requirements remain a separate course-compliance question; they do not require purchasing a plan for this local-backend setup.
 
 ## Project map
 

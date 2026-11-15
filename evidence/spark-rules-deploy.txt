@@ -1,0 +1,3 @@
+﻿+  firestore: released rules firestore.rules to cloud.firestore
++  Deploy complete!
+Project Console: https://console.firebase.google.com/project/test13-a8b02/overview

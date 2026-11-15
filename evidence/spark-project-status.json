@@ -1,0 +1,10 @@
+{
+  "recordedAt": "2026-11-15T00:24:27.433Z",
+  "projectId": "test13-a8b02",
+  "billingEnabled": false,
+  "billingAccountLinked": false,
+  "emailPasswordEnabled": true,
+  "firestoreLocation": "nam5",
+  "backend": "local Functions emulator on port 5002",
+  "coach": "deterministic local Genkit fixture"
+}

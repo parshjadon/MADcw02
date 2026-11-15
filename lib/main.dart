@@ -19,13 +19,14 @@ Future<void> main() async {
       FirebaseFirestore.instance.settings = const Settings(
         persistenceEnabled: false,
       );
-      FirebaseFunctions.instance.useFunctionsEmulator(host, 5001);
     }
+    // Functions always stay local; this app never calls deployed paid functions.
+    FirebaseFunctions.instance.useFunctionsEmulator(
+      QuestConfiguration.emulatorHost,
+      QuestConfiguration.functionsPort,
+    );
     runApp(
-      CloudQuestApp(
-        repository: FirebaseQuestRepository(),
-        emulatorMode: QuestConfiguration.useEmulators,
-      ),
+      CloudQuestApp(repository: FirebaseQuestRepository(), emulatorMode: true),
     );
   } catch (_) {
     runApp(

@@ -1,0 +1,73 @@
+{
+  "recordedAt": "2026-11-15T00:17:41.254Z",
+  "projectId": "test13-a8b02",
+  "billingEnabled": false,
+  "billingAccountLinked": false,
+  "emailPasswordEnabled": true,
+  "firestoreLocation": "nam5",
+  "backend": "local Functions emulator on port 5002",
+  "coach": "deterministic local Genkit fixture",
+  "roles": {
+    "caller": "0KKZl23qnsUGlX2E895H5dN8XQ22",
+    "otherLearner": "7hWX09GvObULHwWAQK9b1gwQDk82"
+  },
+  "observations": [
+    {
+      "scenario": "live Auth and verified-token boundary",
+      "result": "Three synthetic accounts created; absent and forged tokens rejected by both local callables."
+    },
+    {
+      "scenario": "live Firestore authorization",
+      "result": "Signed-in challenge read 200; signed-out/private reads and direct reward writes denied 403."
+    },
+    {
+      "scenario": "grounded read-only coach",
+      "result": {
+        "reply": "For Signal Check, start with the first step: Pause for two minutes. You have 0 points and have not completed this quest yet. Work through the remaining steps, then choose Complete challenge yourself.",
+        "progress": null
+      }
+    },
+    {
+      "scenario": "Signal Check privacy and no-write",
+      "result": {
+        "reply": "I cannot read another learner's badge or award extra points. I can only read your quest state. Use Complete challenge yourself for the fixed one-time reward. Your progress is unchanged.",
+        "callerBefore": null,
+        "callerAfter": null,
+        "otherLearnerAfter": null
+      }
+    },
+    {
+      "scenario": "model and tool failure",
+      "result": "Both UNAVAILABLE; no invented hint or reward."
+    },
+    {
+      "scenario": "one live Firestore reward and idempotent retry",
+      "result": {
+        "path": "users/0KKZl23qnsUGlX2E895H5dN8XQ22/progress/today",
+        "first": {
+          "completed": true,
+          "points": 10,
+          "badgeId": "first-quest",
+          "alreadyCompleted": false
+        },
+        "retry": {
+          "completed": true,
+          "points": 10,
+          "badgeId": "first-quest",
+          "alreadyCompleted": true
+        },
+        "stored": {
+          "completed": true,
+          "points": 10,
+          "badgeId": "first-quest",
+          "completedAt": "2026-11-15T00:17:51.369Z"
+        },
+        "otherLearnerUnchanged": true
+      }
+    },
+    {
+      "scenario": "concurrent live Firestore retries",
+      "result": "Eight requests: one first award, seven existing awards, 10 points stored."
+    }
+  ]
+}

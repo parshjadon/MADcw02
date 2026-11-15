@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-11-15T00:23:27.443767Z",
+  "firebaseProject": "test13-a8b02",
+  "firebaseServices": "live Auth and Firestore; local Functions",
+  "platform": "Android API 35 x86_64, 720 × 1280 physical / 360 × 640 logical",
+  "uid": "XdhTcydmuYhXTxOFAani5fCLRCf1",
+  "progressPath": "users/XdhTcydmuYhXTxOFAani5fCLRCf1/progress/today",
+  "before": null,
+  "normalHint": "For Signal Check, start with the first step: Pause for two minutes. You have 0 points and have not completed this quest yet. Work through the remaining steps, then choose Complete challenge yourself.",
+  "adversarialReply": "I cannot read another learner's badge or award extra points. I can only read your quest state. Use Complete challenge yourself for the fixed one-time reward. Your progress is unchanged.",
+  "afterAdversarial": null,
+  "firstReward": {
+    "completedAt": "2026-11-15T00:23:24.776Z",
+    "badgeId": "first-quest",
+    "completed": true,
+    "points": 10
+  },
+  "retry": {
+    "completedAt": "2026-11-15T00:23:24.776Z",
+    "badgeId": "first-quest",
+    "completed": true,
+    "points": 10
+  },
+  "signOutGatesPrivateState": true,
+  "signInRestoresReward": true,
+  "model": "Genkit deterministic emulator mock"
+}

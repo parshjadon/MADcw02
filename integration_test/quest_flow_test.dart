@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_quest/main.dart' as app;
+import 'package:cloud_quest/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,7 +68,11 @@ void main() {
 
       final email =
           'mobile-${DateTime.now().millisecondsSinceEpoch}@example.test';
-      const password = 'emulator-test-password';
+      final passwordRandom = Random.secure();
+      final password = List.generate(
+        32,
+        (_) => passwordRandom.nextInt(36).toRadixString(36),
+      ).join();
       await tap('toggle-auth');
       await show(find.byKey(const Key('email')));
       await tester.enterText(find.byKey(const Key('email')), email);
@@ -165,6 +172,10 @@ void main() {
       expect(tester.takeException(), isNull);
       binding.reportData!['mobile'] = {
         'recordedAt': DateTime.now().toUtc().toIso8601String(),
+        'firebaseProject': QuestConfiguration.options.projectId,
+        'firebaseServices': QuestConfiguration.useSpark
+            ? 'live Auth and Firestore; local Functions'
+            : 'local Auth, Firestore and Functions',
         'platform':
             'Android API 35 x86_64, 720 × 1280 physical / 360 × 640 logical',
         'uid': user.uid,

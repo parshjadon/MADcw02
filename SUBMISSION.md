@@ -2,7 +2,7 @@
 
 Repository: https://github.com/parshjadon/MADcw02
 
-Prepared: November 13, 2026. This is a verified **free, local-only emulator implementation** of Cloud Quest: Signal Check.
+Updated: November 14, 2026. This is a verified **free, local-only emulator implementation** of Cloud Quest: Signal Check.
 
 ## Included
 
@@ -12,17 +12,17 @@ Prepared: November 13, 2026. This is a verified **free, local-only emulator impl
 - A supervised Genkit Quest Coach with the single read-only `readMyQuestState` tool.
 - An authenticated transactional completion callable: exactly 10 points and the First Quest badge, once.
 - Automated backend boundary/retry tests, widget tests, and an Android integration journey.
-- Eight genuine Android screenshots and recorded before/after progress evidence.
+- Eight genuine Android screenshots for each mode, plus recorded live Firebase and emulator progress evidence.
 - Setup/run instructions and a 134-word reflection.
 - Explicit disclosure of Codex assistance and the emulator model limitation.
 
 See [README.md](README.md), [test evidence](evidence/README.md), and [REFLECTION.md](REFLECTION.md).
 
-The local handoff folder `submission/` contains a source ZIP and an Android debug APK. It is excluded from Git because source and evidence are versioned directly in this repository. The APK connects to local emulators; it is not a hosted Firebase deployment.
+The local handoff folder `submission/` contains a source ZIP and an Android debug APK. It is excluded from Git because source and evidence are versioned directly in this repository. CloudQuest-Spark-debug.apk connects to live Firebase Auth/Firestore and the local Functions backend; CloudQuest-debug.apk uses only demo emulators. Neither build calls deployed Cloud Functions.
 
 ## Required course information is still missing
 
-The supplied assignment explicitly asks for its provided Flutter starter and course Firebase/AI gateway. This GitHub repository was empty and neither resource was available. The app therefore uses synthetic emulator Firebase options and an explicitly labeled deterministic model fixture.
+The supplied assignment explicitly asks for its provided Flutter starter and course Firebase/AI gateway. This GitHub repository was empty and neither resource was available. The default app uses synthetic emulator Firebase options and an explicitly labeled deterministic model fixture. The registered Spark project test13-a8b02 is connected and tested: live Authentication/Firestore, published access rules and seeded challenge, with Functions and the deterministic coach running locally. Billing remains disabled.
 
 Ask the instructor for the starter repository and course Firebase/AI gateway configuration, and confirm whether this independently created starter is acceptable. This course-compliance question does not require purchasing a Firebase plan or a model subscription. The selected implementation deliberately supports only free local testing. The current records do **not** claim those unperformed checks or a production deployment.
 

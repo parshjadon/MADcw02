@@ -4,7 +4,10 @@ import 'dart:io';
 import 'package:integration_test/integration_test_driver_extended.dart';
 
 Future<void> main() async {
-  final directory = Directory('evidence/screenshots');
+  final spark = Platform.environment['QUEST_SPARK_EVIDENCE'] == 'true';
+  final directory = Directory(
+    spark ? 'evidence/spark-screenshots' : 'evidence/screenshots',
+  );
   await directory.create(recursive: true);
   await integrationDriver(
     onScreenshot: (name, bytes, [args]) async {
@@ -12,7 +15,11 @@ Future<void> main() async {
       return bytes.isNotEmpty;
     },
     responseDataCallback: (data) async {
-      await File('evidence/mobile-observations.json').writeAsString(
+      await File(
+        spark
+            ? 'evidence/spark-mobile-observations.json'
+            : 'evidence/mobile-observations.json',
+      ).writeAsString(
         const JsonEncoder.withIndent('  ').convert(data?['mobile']),
       );
     },
