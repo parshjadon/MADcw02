@@ -6,9 +6,13 @@ const { GoogleAuth } = functionRequire("google-auth-library");
 const { initializeApp, applicationDefault, getApps } = functionRequire("firebase-admin/app");
 const { getFirestore } = functionRequire("firebase-admin/firestore");
 const root = path.resolve(__dirname, "..");
-const config = require("../config/firebase-spark.json");
+const localPath = path.join(root, 'config/firebase-spark.local.json');
+const local = fs.existsSync(localPath) ? JSON.parse(fs.readFileSync(localPath, 'utf8')) : {};
+const config = { ...require("../config/firebase-spark.json"),
+  apiKey: process.env.FIREBASE_API_KEY || local.FIREBASE_API_KEY };
 
 async function connectSpark() {
+  if (!config.apiKey) throw Error('Import your Firebase client key with node scripts/import-firebase-config.js.');
   if (process.env.FIRESTORE_EMULATOR_HOST || process.env.FIREBASE_AUTH_EMULATOR_HOST) {
     throw Error("Clear emulator host variables before using Spark mode.");
   }

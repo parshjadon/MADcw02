@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T00:25:41.878Z",
+  "recordedAt": "2026-11-15T01:03:57.334Z",
   "project": "demo-cloud-quest",
   "services": {
     "auth": "9099",
@@ -8,8 +8,8 @@
   },
   "model": "deterministic Genkit emulator mock (not a live LLM)",
   "roles": {
-    "caller": "TheBC9CfDV4xS7fbaMs8ZiUjdQ5y",
-    "otherLearner": "eTlFUdg3q1Vx2rYowhEI40SL4Yun"
+    "caller": "lN3Djf9IxuoW6e2CmgUJu3UIyCf7",
+    "otherLearner": "IKuykZbPzoo8CAnRS4pcAVtBR1lh"
   },
   "observations": [
     {
@@ -49,7 +49,7 @@
     {
       "scenario": "one reward and retry",
       "result": {
-        "path": "users/TheBC9CfDV4xS7fbaMs8ZiUjdQ5y/progress/today",
+        "path": "users/lN3Djf9IxuoW6e2CmgUJu3UIyCf7/progress/today",
         "first": {
           "completed": true,
           "points": 10,
@@ -66,7 +66,7 @@
           "completed": true,
           "points": 10,
           "badgeId": "first-quest",
-          "completedAt": "2026-11-15T00:25:38.348Z"
+          "completedAt": "2026-11-15T01:03:56.965Z"
         },
         "timestampUnchanged": true
       }

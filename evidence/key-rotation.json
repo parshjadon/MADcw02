@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-11-15T01:02:19.359Z",
+  "projectId": "test13-a8b02",
+  "billingEnabled": false,
+  "oldKeyDeleted": true,
+  "deletedAt": "2026-11-15T01:02:16.998668Z",
+  "replacementRestrictedApis": [
+    "identitytoolkit.googleapis.com",
+    "securetoken.googleapis.com",
+    "firestore.googleapis.com",
+    "firebaseinstallations.googleapis.com"
+  ],
+  "backendChecksPassed": 7,
+  "androidSparkJourneyPassed": true,
+  "historyRewritten": false,
+  "githubAlerts": [
+    {
+      "number": 2,
+      "state": "resolved",
+      "resolution": "revoked"
+    },
+    {
+      "number": 1,
+      "state": "resolved",
+      "resolution": "used_in_tests"
+    }
+  ],
+  "oldKeyRejectedByFirebase": true,
+  "replacementAcceptedByFirebase": true,
+  "replacementKeyValueCommitted": false
+}

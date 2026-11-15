@@ -62,3 +62,7 @@ submission/
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+
+# Firebase client keys stay local; committed config contains identifiers only.
+/android/app/google-services.json
+/config/firebase-spark.local.json

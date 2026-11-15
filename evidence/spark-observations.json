@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T00:17:41.254Z",
+  "recordedAt": "2026-11-15T00:58:11.040Z",
   "projectId": "test13-a8b02",
   "billingEnabled": false,
   "billingAccountLinked": false,
@@ -8,8 +8,8 @@
   "backend": "local Functions emulator on port 5002",
   "coach": "deterministic local Genkit fixture",
   "roles": {
-    "caller": "0KKZl23qnsUGlX2E895H5dN8XQ22",
-    "otherLearner": "7hWX09GvObULHwWAQK9b1gwQDk82"
+    "caller": "AOXM6PpNScTrvwB4mTqb19DieXB3",
+    "otherLearner": "fyECzXU2FXfqmctcoEBDD4nZy1s1"
   },
   "observations": [
     {
@@ -43,7 +43,7 @@
     {
       "scenario": "one live Firestore reward and idempotent retry",
       "result": {
-        "path": "users/0KKZl23qnsUGlX2E895H5dN8XQ22/progress/today",
+        "path": "users/AOXM6PpNScTrvwB4mTqb19DieXB3/progress/today",
         "first": {
           "completed": true,
           "points": 10,
@@ -60,7 +60,7 @@
           "completed": true,
           "points": 10,
           "badgeId": "first-quest",
-          "completedAt": "2026-11-15T00:17:51.369Z"
+          "completedAt": "2026-11-15T00:58:05.715Z"
         },
         "otherLearnerUnchanged": true
       }

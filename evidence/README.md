@@ -24,6 +24,12 @@ powershell -ExecutionPolicy Bypass -File scripts/verify-spark.ps1 -AllowTestWrit
 
 This command intentionally creates new synthetic accounts/progress. The coach is still a deterministic test model. Supplied course starter/gateway integration and a live LLM are not claimed.
 
+## Client key remediation
+
+The previously tracked Firebase client key was rotated and deleted after the restricted replacement passed the seven live service checks and the Android journey. Firebase rejects the deleted key with `API_KEY_INVALID`. GitHub alerts 1 and 2 are resolved; alert 1 was a nonfunctional emulator test placeholder. See [remediation record](key-rotation.json).
+
+The replacement is restricted to Authentication, token refresh, Firestore and Installations APIs. Key values are now read from ignored local files and supplied to Flutter at build time. The pre-commit check scans staged text for plaintext keys and encoded Firebase-key settings. Git history was preserved; the old historical key is revoked. Raw Dart define values are omitted from published logs.
+
 ## Environment
 
 - Windows 11, Flutter 3.47.2, Dart 3.13.2, Node.js 24.22.1, Firebase CLI 15.34.2.

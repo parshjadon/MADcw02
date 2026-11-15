@@ -4,6 +4,8 @@ Repository: https://github.com/parshjadon/MADcw02
 
 Updated: November 14, 2026. This is a verified **free, local-only emulator implementation** of Cloud Quest: Signal Check.
 
+The client key reported by GitHub secret scanning has been rotated and revoked. Both alerts are resolved; current source and source ZIP exclude live key values. Spark builds use ignored local configuration.
+
 ## Included
 
 - Native Android Flutter source and pinned FlutterFire dependency lockfile.

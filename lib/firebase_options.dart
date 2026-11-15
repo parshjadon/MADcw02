@@ -16,9 +16,17 @@ abstract final class QuestConfiguration {
     defaultValue: '10.0.2.2',
   );
   static FirebaseOptions get options {
-    if (useSpark) return sparkFirebaseOptions;
+    if (useSpark) {
+      if (sparkFirebaseOptions.apiKey.isEmpty) {
+        throw StateError(
+          'Use scripts/run-spark.ps1 or supply the ignored Firebase key file.',
+        );
+      }
+      return sparkFirebaseOptions;
+    }
     return const FirebaseOptions(
-      apiKey: 'AIzaSy000000000000000000000000000000000',
+      // Firebase SDK's documented nonfunctional demo-project identifier.
+      apiKey: 'ADemoProjectApiKey000000000000000000000',
       appId: '1:1234567890:android:1234567890abcdef',
       messagingSenderId: '1234567890',
       projectId: 'demo-cloud-quest',

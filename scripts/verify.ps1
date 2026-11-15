@@ -7,7 +7,7 @@ function Invoke-Check([string]$Name, [string]$Executable, [string[]]$CommandArgu
     $ErrorActionPreference = 'Continue'
     try {
         & $Executable @CommandArguments 2>&1 | ForEach-Object {
-            "$_" -replace 'http://127\.0\.0\.1:\d+/[^\s]+', '[local Dart VM service URL omitted]'
+            "$_" -replace 'http://127\.0\.0\.1:\d+/[^\s]+', '[local Dart VM service URL omitted]' -replace '-Pdart-defines=\S+', '-Pdart-defines=[local values omitted]'
         } | Tee-Object -FilePath "evidence/$Name.txt"
         $resultCode = $LASTEXITCODE
     } finally { $ErrorActionPreference = $previousPreference }

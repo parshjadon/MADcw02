@@ -1,5 +1,5 @@
 ﻿00:00 +0: loading C:/MAD/CW02/test/widget_test.dart
 00:00 +0: signed-out view gates coach, private progress and completion
-00:01 +1: sign-out clears private state and discards an in-flight coach reply
-00:01 +2: small phone with enlarged text can reach challenge and coach without overflow
-00:01 +3: All tests passed!
+00:00 +1: sign-out clears private state and discards an in-flight coach reply
+00:00 +2: small phone with enlarged text can reach challenge and coach without overflow
+00:00 +3: All tests passed!

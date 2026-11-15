@@ -70,13 +70,15 @@ See [recorded evidence](evidence/README.md), [backend observations](evidence/bac
 
 ## Free Firebase connection
 
-The default run remains entirely local with `demo-cloud-quest`. An optional registered-project mode now imports the Android configuration for `test13-a8b02` from `android/app/google-services.json`. The project check confirmed billing disabled, no linked billing account, Email/Password enabled and a Firestore database in `nam5`. See [project status](evidence/spark-project-status.json).
+The default run remains entirely local with `demo-cloud-quest`. The registered-project mode uses the public Android identifiers for `test13-a8b02`. Its client API key is loaded from ignored local configuration, not from tracked source. The project check confirmed billing disabled, no linked billing account, Email/Password enabled and a Firestore database in `nam5`. See [project status](evidence/spark-project-status.json).
 
 In Spark mode, Authentication and Firestore are live Firebase services; the reward callable and Genkit test coach remain on your computer at port 5002. There is no hosted-model adapter and no deployed Cloud Function. The backend independently verifies real Firebase ID tokens in this mode. The default emulator mode keeps its existing strict demo-project/loopback checks.
 
-Before each Spark backend start, `scripts/check-spark.js` verifies that billing is still disabled and no billing account is linked. It uses the existing local Firebase CLI login; private login credentials are never copied into this repository. The registered client identifiers are public app configuration, not Admin credentials.
+Before each Spark backend start, `scripts/check-spark.js` verifies that billing is still disabled and no billing account is linked. It uses the existing local Firebase CLI login; private login credentials are never copied into this repository. Only project/app identifiers are committed. The client API key, Android google-services.json and private login credentials stay in ignored local files.
 
 The approved setup seeded `challenges/today` and published [these rules](firestore.rules): signed-in challenge reads, own-progress reads, and no client writes. All seven live service checks passed, including independent ID-token verification, forged-token denial, cross-user read denial, denied client writes, coach no-write behavior, first reward, idempotent retry and eight concurrent completion requests. The test creates three synthetic accounts and small progress records. See [Spark observations](evidence/spark-observations.json) and [test output](evidence/spark-tests.txt).
+
+For a fresh checkout, save the Android Firebase configuration locally as `android/app/google-services.json`, then run `node scripts/import-firebase-config.js`. This creates the ignored `config/firebase-spark.local.json` file. Your existing working copy is already configured.
 
 To use the registered Firebase project without enabling billing, run:
 
@@ -84,12 +86,16 @@ To use the registered Firebase project without enabling billing, run:
 # Terminal 1: local backend using the registered free project's Auth/Firestore
 powershell -ExecutionPolicy Bypass -File scripts/start-spark.ps1
 # Terminal 2: Android client
-flutter run -d emulator-5554 --dart-define=USE_SPARK=true
+powershell -ExecutionPolicy Bypass -File scripts/run-spark.ps1
 ```
 
 To repeat the live service checks, run `powershell -ExecutionPolicy Bypass -File scripts/verify-spark.ps1 -AllowTestWrites`; add `-DeviceId emulator-5554` for Android evidence. This intentionally creates synthetic test accounts/progress.
 
 This app still uses a deterministic local coach fixture. Neither a live LLM result nor a Cloud Functions deployment is claimed. The original brief's supplied-starter/course-gateway requirements remain a separate course-compliance question; they do not require purchasing a plan for this local-backend setup.
+
+## Prevent committing client keys
+
+`node scripts/check-secrets.js` scans tracked text for Google API keys, private keys, OAuth refresh tokens and encoded Firebase-key settings. Enable the repository-local commit guard after cloning with `git config core.hooksPath .githooks`. The source ZIP excludes local key files. The default demo run needs no live client key; a Spark build receives its key through `--dart-define-from-file=config/firebase-spark.local.json`. Firebase client keys are still present in built mobile apps by design; API restrictions and Firestore rules enforce their scope.
 
 ## Project map
 

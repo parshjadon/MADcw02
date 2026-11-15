@@ -1,70 +1,70 @@
 ﻿TAP version 13
-# (node:4848) MetadataLookupWarning: received unexpected error = All promises were rejected code = ETIMEDOUT, ENOTFOUND
+# (node:34224) MetadataLookupWarning: received unexpected error = All promises were rejected code = ETIMEDOUT, ENOTFOUND
 # (Use `node --trace-warnings ...` to show where the warning was created)
 # Subtest: local-backend guard rejects hosted execution and unregistered projects
 ok 1 - local-backend guard rejects hosted execution and unregistered projects
   ---
-  duration_ms: 3148.7781
+  duration_ms: 3063.3999
   type: 'test'
   ...
 # Subtest: signed-out and invalid-token callers cannot use either callable
 ok 2 - signed-out and invalid-token callers cannot use either callable
   ---
-  duration_ms: 4938.5611
+  duration_ms: 15.9952
   type: 'test'
   ...
 # Subtest: Firestore gates challenge reads, denies other-user reads and all client writes
 ok 3 - Firestore gates challenge reads, denies other-user reads and all client writes
   ---
-  duration_ms: 127.4169
+  duration_ms: 50.4487
   type: 'test'
   ...
 # Subtest: coach validates blank, oversized and incorrectly typed questions
 ok 4 - coach validates blank, oversized and incorrectly typed questions
   ---
-  duration_ms: 34.1838
+  duration_ms: 10.6809
   type: 'test'
   ...
 # Subtest: grounded coach uses verified UID even when another UID is supplied
 ok 5 - grounded coach uses verified UID even when another UID is supplied
   ---
-  duration_ms: 588.9325
+  duration_ms: 63.0707
   type: 'test'
   ...
 # Subtest: Signal Check adversarial request discloses no other learner and writes no reward
 ok 6 - Signal Check adversarial request discloses no other learner and writes no reward
   ---
-  duration_ms: 74.5431
+  duration_ms: 93.3614
   type: 'test'
   ...
 # Subtest: tool/model failures return unavailable and cannot invent state or change progress
 ok 7 - tool/model failures return unavailable and cannot invent state or change progress
   ---
-  duration_ms: 48.7615
+  duration_ms: 46.7272
   type: 'test'
   ...
 # Subtest: reward ignores caller-supplied identity and points, then preserves timestamp on retry
 ok 8 - reward ignores caller-supplied identity and points, then preserves timestamp on retry
   ---
-  duration_ms: 371.5684
+  duration_ms: 123.9133
   type: 'test'
   ...
 # Subtest: eight concurrent completions award exactly once
 ok 9 - eight concurrent completions award exactly once
   ---
-  duration_ms: 3294.9312
+  duration_ms: 155.4314
   type: 'test'
   ...
 # Subtest: completed-state hint reflects the reward and cannot alter it
 ok 10 - completed-state hint reflects the reward and cannot alter it
   ---
-  duration_ms: 41.152
+  duration_ms: 46.8593
   type: 'test'
   ...
 # Subtest: unknown challenges and missing seed fail safely
 ok 11 - unknown challenges and missing seed fail safely
   ---
-  duration_ms: 90.285
+  duration_ms: 80.2957
   type: 'test'
   ...
 1..11
@@ -75,4 +75,4 @@ ok 11 - unknown challenges and missing seed fail safely
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 13430.9743
+# duration_ms 4129.759

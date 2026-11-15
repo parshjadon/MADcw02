@@ -39,15 +39,15 @@ C:\MAD\CW02\android>set _SKIP=2
 
 C:\MAD\CW02\android>if "x-q" == "x" goto execute
 
-C:\MAD\CW02\android>set CMD_LINE_ARGS=-q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=VVNFX1NQQVJLPXRydWU=,RkxVVFRFUl9CVUlMRF9OQU1FPTEuMC4w,RkxVVFRFUl9CVUlMRF9OVU1CRVI9MQ==,RkxVVFRFUl9WRVJTSU9OPTMuNDcuMg==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049ZDNiMTRjODc2OQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049YTgwNGIyNjE2NA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMy4y -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
+C:\MAD\CW02\android>set CMD_LINE_ARGS=-q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=[local values omitted] -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
 
 C:\MAD\CW02\android>goto execute
 
 C:\MAD\CW02\android>set CLASSPATH=C:\MAD\CW02\android\\gradle\wrapper\gradle-wrapper.jar
 
-C:\MAD\CW02\android>"C:\MAD\Andriod Studio\jbr/bin/java.exe"    "-Dorg.gradle.appname=gradlew" -classpath "C:\MAD\CW02\android\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain -q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=VVNFX1NQQVJLPXRydWU=,RkxVVFRFUl9CVUlMRF9OQU1FPTEuMC4w,RkxVVFRFUl9CVUlMRF9OVU1CRVI9MQ==,RkxVVFRFUl9WRVJTSU9OPTMuNDcuMg==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049ZDNiMTRjODc2OQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049YTgwNGIyNjE2NA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMy4y -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
+C:\MAD\CW02\android>"C:\MAD\Andriod Studio\jbr/bin/java.exe"    "-Dorg.gradle.appname=gradlew" -classpath "C:\MAD\CW02\android\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain -q -Ptarget-platform=android-x64 -Ptarget=integration_test/quest_flow_test.dart -Pbase-application-name=android.app.Application -Pdart-defines=[local values omitted] -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=false -Pflutter.androidSdkRoot=C:\Users\parsh\AppData\Local\Android\sdk -Pflutter.installedNdkVersions=28.2.13676358 assembleDebug
 flutter : WARNING: A restricted method in java.lang.System has been called
-At line:2 char:35
+At line:2 char:52
 + ... NCE='true'; flutter drive --driver=test_driver/integration_test.dart  ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (WARNING: A rest...has been called:String) [], RemoteException
@@ -74,76 +74,76 @@ https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for
 C:\MAD\CW02\android>if "0" == "0" goto mainEnd
 
 C:\MAD\CW02\android>if "Windows_NT" == "Windows_NT" endlocal
-Running Gradle task 'assembleDebug'...                              6.7s
+Running Gradle task 'assembleDebug'...                             12.8s
 ✓ Built build\app\outputs\flutter-apk\app-debug.apk
-Installing build\app\outputs\flutter-apk\app-debug.apk...        1,339ms
-I/Choreographer( 1885): Skipped 32 frames!  The application may be doing too much work on its main thread.
-D/FlutterJNI( 1885): Sending viewport metrics to the engine.
+Installing build\app\outputs\flutter-apk\app-debug.apk...          627ms
+I/rsh.cloud_quest( 2129): Compiler allocated 5174KB to compile void android.view.ViewRootImpl.performTraversals()
+D/FlutterJNI( 2129): Sending viewport metrics to the engine.
 VMServiceFlutterDriver: Connecting to Flutter application at [local Dart VM service URL omitted]
-VMServiceFlutterDriver: Isolate found with number: 1040251800490671
-VMServiceFlutterDriver: Isolate 1040251800490671 is runnable.
+VMServiceFlutterDriver: Isolate found with number: 3610761523109735
+VMServiceFlutterDriver: Isolate 3610761523109735 is runnable.
 VMServiceFlutterDriver: Isolate is paused at start.
 VMServiceFlutterDriver: Attempting to resume isolate
-I/flutter ( 1885): 00:00 +0: Android learner journey, coach safety, reward retry and sign-out
+I/flutter ( 2129): 00:00 +0: Android learner journey, coach safety, reward retry and sign-out
 VMServiceFlutterDriver: Connected to Flutter application.
-I/FirebaseApp( 1885): Device unlocked: initializing all Firebase APIs for app [DEFAULT]
-D/FirebaseAuth( 1885): Notifying id token listeners about a sign-out event.
-D/FirebaseAuth( 1885): Notifying auth state listeners about a sign-out event.
-D/FlutterJNI( 1885): Sending viewport metrics to the engine.
-D/ProfileInstaller( 1885): Installing profile for edu.gsu.parsh.cloud_quest
-D/EGL_emulation( 1885): app_time_stats: avg=135.90ms min=4.46ms max=316.73ms count=9
-I/FirebaseAuth( 1885): Creating user with mobile-1794702191238@example.test with empty reCAPTCHA token
-W/System  ( 1885): Ignoring header X-Firebase-Locale because its value was null.
-D/TrafficStats( 1885): tagSocket(148) with statsTag=0xffffffff, statsUid=-1
-D/EGL_emulation( 1885): app_time_stats: avg=92.79ms min=19.36ms max=149.21ms count=11
-D/EGL_emulation( 1885): app_time_stats: avg=115.89ms min=112.40ms max=117.46ms count=9
+I/FirebaseApp( 2129): Device unlocked: initializing all Firebase APIs for app [DEFAULT]
+D/FirebaseAuth( 2129): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 2129): Notifying auth state listeners about a sign-out event.
+D/FlutterJNI( 2129): Sending viewport metrics to the engine.
+D/EGL_emulation( 2129): app_time_stats: avg=120.05ms min=3.52ms max=250.17ms count=10
+I/FirebaseAuth( 2129): Creating user with mobile-1794704452761@example.test with empty reCAPTCHA token
+W/System  ( 2129): Ignoring header X-Firebase-Locale because its value was null.
+D/ProfileInstaller( 2129): Installing profile for edu.gsu.parsh.cloud_quest
+D/EGL_emulation( 2129): app_time_stats: avg=86.11ms min=20.47ms max=137.47ms count=12
+D/TrafficStats( 2129): tagSocket(151) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 2129): app_time_stats: avg=116.37ms min=113.83ms max=118.10ms count=9
 VMServiceFlutterDriver: request_data message is taking a long time to complete...
-W/System  ( 1885): Ignoring header X-Firebase-Locale because its value was null.
-D/FirebaseAuth( 1885): Notifying id token listeners about user ( XdhTcydmuYhXTxOFAani5fCLRCf1 ).
-D/FirebaseAuth( 1885): Notifying auth state listeners about user ( XdhTcydmuYhXTxOFAani5fCLRCf1 ).
-W/GooglePlayServicesUtil( 1885): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
-E/GooglePlayServicesUtil( 1885): GooglePlayServices not available due to error 9
-W/Firestore( 1885): (27.1.0) [GrpcCallProvider]: Failed to update ssl context: com.google.android.gms.common.GooglePlayServicesNotAvailableException
-D/FlutterJNI( 1885): Sending viewport metrics to the engine.
-D/TrafficStats( 1885): tagSocket(166) with statsTag=0xffffffff, statsUid=-1
-D/EGL_emulation( 1885): app_time_stats: avg=127.24ms min=114.41ms max=178.36ms count=8
-D/EGL_emulation( 1885): app_time_stats: avg=116.68ms min=114.66ms max=118.50ms count=9
-D/EGL_emulation( 1885): app_time_stats: avg=2330.18ms min=232.51ms max=5747.69ms count=3
-D/EGL_emulation( 1885): app_time_stats: avg=142.85ms min=105.08ms max=203.38ms count=7
-W/GooglePlayServicesUtil( 1885): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
-E/GooglePlayServicesUtil( 1885): GooglePlayServices not available due to error 9
-D/FirebaseFunctions( 1885): Failed to update ssl context
-E/FirebaseInstanceId( 1885): Google Play services missing or without correct permission.
-D/TrafficStats( 1885): tagSocket(165) with statsTag=0xffffffff, statsUid=-1
-D/EGL_emulation( 1885): app_time_stats: avg=83.31ms min=26.80ms max=117.85ms count=13
-D/EGL_emulation( 1885): app_time_stats: avg=2366.45ms min=2366.45ms max=2366.45ms count=1
-D/EGL_emulation( 1885): app_time_stats: avg=131.07ms min=108.42ms max=199.60ms count=8
-E/FirebaseInstanceId( 1885): Google Play services missing or without correct permission.
-D/EGL_emulation( 1885): app_time_stats: avg=86.39ms min=12.43ms max=137.40ms count=12
-D/EGL_emulation( 1885): app_time_stats: avg=1466.70ms min=1466.70ms max=1466.70ms count=1
-E/FirebaseInstanceId( 1885): Google Play services missing or without correct permission.
-I/flutter ( 1885): Quest Coach failed: unavailable
-D/EGL_emulation( 1885): app_time_stats: avg=85.84ms min=34.20ms max=199.76ms count=13
-D/EGL_emulation( 1885): app_time_stats: avg=1465.70ms min=1465.70ms max=1465.70ms count=1
-D/EGL_emulation( 1885): app_time_stats: avg=126.39ms min=113.29ms max=199.39ms count=8
-E/FirebaseInstanceId( 1885): Google Play services missing or without correct permission.
-D/EGL_emulation( 1885): app_time_stats: avg=91.33ms min=14.12ms max=133.06ms count=11
-D/EGL_emulation( 1885): app_time_stats: avg=1667.60ms min=1667.60ms max=1667.60ms count=1
-E/FirebaseInstanceId( 1885): Google Play services missing or without correct permission.
-D/EGL_emulation( 1885): app_time_stats: avg=96.97ms min=17.53ms max=200.30ms count=11
-D/EGL_emulation( 1885): app_time_stats: avg=1318.09ms min=1318.09ms max=1318.09ms count=1
-D/FirebaseAuth( 1885): Notifying id token listeners about a sign-out event.
-D/FirebaseAuth( 1885): Notifying auth state listeners about a sign-out event.
-D/EGL_emulation( 1885): app_time_stats: avg=99.54ms min=13.15ms max=195.96ms count=11
-I/FirebaseAuth( 1885): Logging in as mobile-1794702191238@example.test with empty reCAPTCHA token
-W/System  ( 1885): Ignoring header X-Firebase-Locale because its value was null.
-W/System  ( 1885): Ignoring header X-Firebase-Locale because its value was null.
-D/FirebaseAuth( 1885): Notifying id token listeners about user ( XdhTcydmuYhXTxOFAani5fCLRCf1 ).
-D/FirebaseAuth( 1885): Notifying auth state listeners about user ( XdhTcydmuYhXTxOFAani5fCLRCf1 ).
-D/EGL_emulation( 1885): app_time_stats: avg=85.97ms min=23.08ms max=199.79ms count=12
-D/FirebaseAuth( 1885): Notifying id token listeners about a sign-out event.
-D/FirebaseAuth( 1885): Notifying auth state listeners about a sign-out event.
-I/flutter ( 1885): 00:18 +1: (tearDownAll)
-D/EGL_emulation( 1885): app_time_stats: avg=1158.45ms min=616.19ms max=1700.71ms count=2
-I/flutter ( 1885): 00:18 +2: All tests passed!
+D/EGL_emulation( 2129): app_time_stats: avg=116.74ms min=115.05ms max=118.31ms count=9
+W/System  ( 2129): Ignoring header X-Firebase-Locale because its value was null.
+D/FirebaseAuth( 2129): Notifying id token listeners about user ( xF2pQ3ADXxM2AOLib7IJwBzBVYn1 ).
+D/FirebaseAuth( 2129): Notifying auth state listeners about user ( xF2pQ3ADXxM2AOLib7IJwBzBVYn1 ).
+W/GooglePlayServicesUtil( 2129): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
+E/GooglePlayServicesUtil( 2129): GooglePlayServices not available due to error 9
+W/Firestore( 2129): (27.1.0) [GrpcCallProvider]: Failed to update ssl context: com.google.android.gms.common.GooglePlayServicesNotAvailableException
+D/FlutterJNI( 2129): Sending viewport metrics to the engine.
+D/TrafficStats( 2129): tagSocket(161) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 2129): app_time_stats: avg=123.88ms min=111.22ms max=168.69ms count=9
+D/EGL_emulation( 2129): app_time_stats: avg=123.91ms min=114.13ms max=181.47ms count=9
+D/EGL_emulation( 2129): app_time_stats: avg=2541.25ms min=218.48ms max=6528.20ms count=3
+D/EGL_emulation( 2129): app_time_stats: avg=101.25ms min=25.97ms max=176.16ms count=10
+W/GooglePlayServicesUtil( 2129): edu.gsu.parsh.cloud_quest requires the Google Play Store, but it is missing.
+E/GooglePlayServicesUtil( 2129): GooglePlayServices not available due to error 9
+D/FirebaseFunctions( 2129): Failed to update ssl context
+E/FirebaseInstanceId( 2129): Google Play services missing or without correct permission.
+D/TrafficStats( 2129): tagSocket(170) with statsTag=0xffffffff, statsUid=-1
+D/EGL_emulation( 2129): app_time_stats: avg=96.68ms min=9.71ms max=137.55ms count=11
+D/EGL_emulation( 2129): app_time_stats: avg=2299.48ms min=2299.48ms max=2299.48ms count=1
+E/FirebaseInstanceId( 2129): Google Play services missing or without correct permission.
+D/EGL_emulation( 2129): app_time_stats: avg=90.94ms min=26.29ms max=184.58ms count=11
+D/EGL_emulation( 2129): app_time_stats: avg=1466.89ms min=1466.89ms max=1466.89ms count=1
+D/EGL_emulation( 2129): app_time_stats: avg=110.83ms min=14.89ms max=183.78ms count=10
+E/FirebaseInstanceId( 2129): Google Play services missing or without correct permission.
+I/flutter ( 2129): Quest Coach failed: unavailable
+D/EGL_emulation( 2129): app_time_stats: avg=79.47ms min=25.24ms max=120.48ms count=13
+D/EGL_emulation( 2129): app_time_stats: avg=1450.37ms min=1450.37ms max=1450.37ms count=1
+E/FirebaseInstanceId( 2129): Google Play services missing or without correct permission.
+D/EGL_emulation( 2129): app_time_stats: avg=96.39ms min=16.41ms max=183.73ms count=11
+D/EGL_emulation( 2129): app_time_stats: avg=1515.63ms min=1515.63ms max=1515.63ms count=1
+E/FirebaseInstanceId( 2129): Google Play services missing or without correct permission.
+D/EGL_emulation( 2129): app_time_stats: avg=113.43ms min=32.72ms max=184.16ms count=9
+D/EGL_emulation( 2129): app_time_stats: avg=1283.60ms min=1283.60ms max=1283.60ms count=1
+D/EGL_emulation( 2129): app_time_stats: avg=102.01ms min=17.94ms max=186.66ms count=10
+D/FirebaseAuth( 2129): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 2129): Notifying auth state listeners about a sign-out event.
+D/EGL_emulation( 2129): app_time_stats: avg=84.74ms min=12.87ms max=182.63ms count=13
+I/FirebaseAuth( 2129): Logging in as mobile-1794704452761@example.test with empty reCAPTCHA token
+W/System  ( 2129): Ignoring header X-Firebase-Locale because its value was null.
+W/System  ( 2129): Ignoring header X-Firebase-Locale because its value was null.
+D/FirebaseAuth( 2129): Notifying id token listeners about user ( xF2pQ3ADXxM2AOLib7IJwBzBVYn1 ).
+D/FirebaseAuth( 2129): Notifying auth state listeners about user ( xF2pQ3ADXxM2AOLib7IJwBzBVYn1 ).
+D/FirebaseAuth( 2129): Notifying id token listeners about a sign-out event.
+D/FirebaseAuth( 2129): Notifying auth state listeners about a sign-out event.
+I/flutter ( 2129): 00:18 +1: (tearDownAll)
+I/flutter ( 2129): 00:18 +2: All tests passed!
+D/EGL_emulation( 2129): app_time_stats: avg=1143.19ms min=582.25ms max=1704.14ms count=2
 All tests passed.
